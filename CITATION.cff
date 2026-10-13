@@ -1,0 +1,18 @@
+cff-version: 1.2.0
+message: "If you use this simulator in your work, please cite it as below."
+title: "Scout Mini Simulator: AgileX Scout Mini Gazebo simulation for ROS 2 with Livox Mid-360 and ZED 2i"
+type: software
+authors:
+  - family-names: "Ida Bagus"
+    given-names: "Dwiweka Naratama"
+repository-code: "https://github.com/dwiwekan/scout_mini_simulator"
+license: Apache-2.0
+keywords:
+  - AgileX Scout Mini
+  - Gazebo
+  - ROS 2 Humble
+  - Livox Mid-360
+  - ZED 2i
+  - SLAM
+  - Nav2
+  - mobile robot simulation

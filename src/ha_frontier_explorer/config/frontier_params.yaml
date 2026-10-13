@@ -1,0 +1,17 @@
+# "/**" matches the node under any namespace (e.g. /scout_mini/frontier_explorer)
+/**:
+  ros__parameters:
+    map_topic: "map"             # relative -> /<namespace>/map from slam_toolbox
+    map_frame: "map"
+    base_frame: "base_link"
+    min_frontier_size: 5         # drop tiny frontiers (cells)
+    cluster_connectivity: 8      # 4 or 8
+    alpha_ig: 1.0                # information gain weight (~cluster size)
+    beta_dist: 1.0               # distance penalty
+    gamma_yaw: 0.2               # rotation penalty
+    lambda_risk: 0.0
+    blacklist_radius_m: 1.0      # radius around failed/reached goals that is not retried
+    blacklist_reached: true
+    send_goal_interval_s: 2.0    # min interval between goals
+    goal_timeout_s: 60.0         # give up on a frontier goal after this (s), 0 = never
+    distance_scale: 1.0

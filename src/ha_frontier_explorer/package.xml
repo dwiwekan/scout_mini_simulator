@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<package format="3">
+  <name>ha_frontier_explorer</name>
+  <version>0.0.1</version>
+  <description>Frontier-based Active SLAM explorer for Scout Mini + slam_toolbox + Nav2 (adapted from the TurtleBot3 + Cartographer version)</description>
+  <maintainer email="dwiwekan@gmail.com">Ida Bagus Dwiweka Naratama</maintainer>
+  <license>MIT</license>
+
+  <buildtool_depend>ament_cmake</buildtool_depend>
+
+  <!-- ROS 2 C++ 의존성 -->
+  <depend>rclcpp</depend>
+  <depend>nav_msgs</depend>
+  <depend>geometry_msgs</depend>
+  <depend>nav2_msgs</depend>
+  <depend>rclcpp_action</depend>
+  <depend>tf2</depend>
+  <depend>tf2_ros</depend>
+  <depend>tf2_geometry_msgs</depend>
+  <!-- Optional: yolo_msgs enables object-goal pursuit (see CMakeLists.txt) -->
+
+  <!-- 런치 파일에서 사용되는 파이썬 모듈/런치 시스템 -->
+  <exec_depend>launch</exec_depend>
+  <exec_depend>launch_ros</exec_depend>
+  <exec_depend>ament_index_python</exec_depend>
+  <exec_depend>scout_navigation</exec_depend>
+  <exec_depend>topic_tools</exec_depend>
+
+  <export>
+    <build_type>ament_cmake</build_type>
+  </export>
+</package>

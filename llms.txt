@@ -1,0 +1,25 @@
+# Scout Mini Simulator
+
+> AgileX Scout Mini simulation for ROS 2 Humble and Gazebo Classic 11. The Scout Mini model has a simulated Livox Mid-360 3D lidar (PointCloud2) and a Stereolabs ZED 2i depth camera (zed-ros2-wrapper topic names). Works with slam_toolbox, Nav2 (3D voxel layer) and frontier-based autonomous exploration. Includes an obstacle arena and a park world with hills, terraces and 5-25 degree ramps.
+
+Install: clone the repo, run `./setup.sh` (fetches ROSETEA-lab/ugv_gazebo_sim at a pinned commit and applies overlay/), then `rosdep install --from-paths src --ignore-src -r -y && colcon build --symlink-install`.
+
+Run: `ros2 launch scout_gazebo_sim scout_mini_empty_world.launch.py publish_odom_tf:=true`
+SLAM: `ros2 launch scout_navigation slam_online_async.launch.py namespace:=scout_mini`
+Exploration: `ros2 launch ha_frontier_explorer explore_scout_mini.launch.py use_ekf:=false`
+Topics are under /scout_mini: livox/lidar, scan, zed/zed/left/image_rect_color, zed/zed/depth/depth_registered, zed/zed/point_cloud/cloud_registered, zed/zed/imu/data, odom, cmd_vel.
+
+## Docs
+
+- [README](README.md): install, usage, sensor topics, known issues, FAQ
+- [CHANGES](CHANGES.md): every change made to upstream ugv_gazebo_sim and scout_navigation
+
+## Source
+
+- [Scout Mini model (SDF)](overlay/ugv_gazebo_sim/scout/scout_gazebo_sim/models/scout_mini/scout_mini.sdf): Livox and ZED 2i Gazebo plugins
+- [Scout Mini URDF extras](overlay/ugv_gazebo_sim/scout/scout_description/urdf/scout_mini_extras.urdf): sensor frames
+- [Spawn launch](overlay/ugv_gazebo_sim/scout/scout_gazebo_sim/launch/spawn_scout_mini.launch.py)
+- [World generator](overlay/ugv_gazebo_sim/scout/scout_gazebo_sim/tools/gen_empty_world.py): arena and park
+- [Nav2 params](src/scout_navigation/config/nav2_params.yaml)
+- [cloud_height_filter](src/scout_navigation/src/cloud_height_filter.cpp): 3D cloud to Nav2 obstacle cloud
+- [setup.sh](setup.sh)

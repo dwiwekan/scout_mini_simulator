@@ -1,0 +1,18 @@
+# colcon outputs
+build/
+install/
+log/
+
+# Fetched by setup.sh (our changes live in overlay/)
+src/ugv_gazebo_sim/
+src/ugv_sdk/
+src/scout_ros2/
+
+# Python / editor clutter
+__pycache__/
+*.pyc
+.vscode/
+.idea/
+*.swp
+.claude-flow/
+.claude/
